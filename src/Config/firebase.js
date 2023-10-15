@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 
 
@@ -23,10 +23,10 @@ const auth = getAuth(app);
 
 const signupUser = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
-    // console.log(email,password)
+        // console.log(email,password)
         .then((userCredential) => {
             const user = userCredential.user;
-            alert("Successfully Logged in")
+            alert("Successfully Sign up")
         })
         .catch((e) => {
             // const errorCode = error.code;
@@ -37,6 +37,23 @@ const signupUser = (email, password) => {
 };
 
 
+
+const signinUser = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            alert("Successfully Signed In")
+        })
+        .catch((e) => {
+            // const errorCode = error.code;
+            // const errorMessage = error.message;
+            alert(e.message)
+        });
+}
+
+
 export {
-    signupUser
+    signupUser,
+    signinUser
 }

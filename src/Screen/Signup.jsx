@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { signupUser } from '../Config/firebase'
-import './signup.css'; // Import your CSS file
+import './signup.css'; 
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
@@ -34,6 +35,7 @@ export default function Signup() {
       </div>
 
       <button onClick={signupAcc}>Sign Up</button>
+     <p>You already have an account<br /><Link to={'/signin'}>Click here</Link></p> 
     </div>
   );
 }

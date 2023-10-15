@@ -8,6 +8,7 @@ import Product from '../Screen/Product'
 import ProductDetails from '../Screen/ProductDetails'
 import Header from '../Screen/header'
 import Signup from '../Screen/Signup'
+import Signin from '../Screen/Login'
 
 const router = createBrowserRouter([
 
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
     {
         path: '/signup',
         element: <Signup />,
+    },
+
+    {
+        path: '/signin',
+        element: <Signin />,
     },
 
     {
