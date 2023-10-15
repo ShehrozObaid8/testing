@@ -1,24 +1,39 @@
 import React, { useState } from 'react'
 import { signupUser } from '../Config/firebase'
+import './signup.css'; // Import your CSS file
 
 export default function Signup() {
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const signupAcc = () => {
-        const signup = signupUser (email, password)
-        // console.log('signup',signup)
-    }
-    return (
-        <div>
-            <div>
-                <input onChange={(e) => setEmail(e.target.value)} type="email" name="" id="" />
-            </div>
+  const signupAcc = () => {
+    const sign = signupUser (email,password)
+  };
 
-            <div>
-                <input onChange={(e) => setPassword(e.target.value)} type="password" name="" id="" />
-            </div>
-            <button onClick={signupAcc}>Signup</button>
-        </div>
-    )
+  return (
+    <div className="signup-container">
+      <h2>Sign Up</h2>
+      <div className="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <button onClick={signupAcc}>Sign Up</button>
+    </div>
+  );
 }
