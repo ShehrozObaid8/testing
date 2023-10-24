@@ -28,22 +28,21 @@ export default function ProductDetails() {
             .then((res) => res.json())
             .then((data) => setProduct(data));
     }, [id]);
-
     if (!product) {
-        return <h2 style={{ marginTop: '230px' }}>Loading...</h2>;
+        return <img width={100} style={{ marginTop: '200px', marginLeft: '20px' }} src="https://i.gifer.com/ZZ5H.gif" alt="" />
     }
 
     return (
         <div style={productThingStyle}>
            <div style={productDetailStyle}>
                 <Detail
-                    categ={product.category || ''}
-                    desc={product.description || ''}
-                    ident={product.id || ''}
-                    image={product.image || ''}
-                    price={product.price || ''}
-                    rate={product.rating.rate || ''}
-                    title={product.title || ''}
+                    categ={product.category}
+                    desc={product.description}
+                    ident={product.id}
+                    image={product.image}
+                    price={product.price}
+                    rate={product.rating.rate}
+                    title={product.title}
                 />
             </div>
         </div>

@@ -4,7 +4,7 @@ export default function Detail(props) {
     return (
         <div className="product-detail">
             <div className="product-image">
-                <img src={props?.image} alt={props.title}  style={{width:100,height:100}}/>
+                <img src={props.image} alt={props.title}  style={{width:100,height:100}}/>
             </div>
             <div className="product-info">
                 <p className="product-category">{props.category}</p>

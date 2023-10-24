@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function Product() {
     const [product, setProduct] = useState()
-     console.log(product)
+    console.log(product)
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -16,15 +16,15 @@ export default function Product() {
     }, [])
 
     if (!product) {
-        return <h2 style={{ marginTop: '230px' }}>Loading...</h2>
+        return <img width={100} style={{ marginTop: '200px', marginLeft: '20px' }} src="https://i.gifer.com/ZZ5H.gif" alt="" />
     }
     return (
         <div>
-        {product.map((item) => (
-            <Link key={item.id} to={`/ProductDetails/${item.id}`}>
-                <Card image={item.image} title={item.title} description={item.description} price={item.price} category={item.category} rate={item.rating} />
-            </Link>
-        ))}
-    </div>
+            {product.map((item) => (
+                <Link key={item.id} to={`/ProductDetails/${item.id}`}>
+                    <Card image={item.image} title={item.title} description={item.description} price={item.price} category={item.category} rate={item.rating} />
+                </Link>
+            ))}
+        </div>
     )
 }
